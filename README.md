@@ -2,7 +2,7 @@ Leiedal Questionnaire
 =====================================
 
 A web application for [Leiedal](http://www.leiedal.be/). Determines the users ecolabel and gives the appropriate advice.
-Part of an application that consists of [leiedal-questionnaire-api](https://github.com/oSoc15/leiedal-questionnaire-api) and [leiedal-questionnaire](https://github.com/oSoc15/leiedal-map).
+Part of an application that consists of [leiedal-questionnaire-api](https://github.com/oSoc15/leiedal-questionnaire-api) and [leiedal-map](https://github.com/oSoc15/leiedal-map).
 
 [View contributors](https://github.com/oSoc15/leiedal-questionnaire/graphs/contributors)
 
