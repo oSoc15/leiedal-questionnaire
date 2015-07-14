@@ -59,12 +59,16 @@ a:hover {
     }
     
     #progressbar {
-         position: absolute;
-        top:0;
-        left:0;
+         position: relative;
         background-color: #FFF;
         height: 10px;
         width: 100%;
+    }
+    
+    button {
+        background-color: $grey-light;
+        height: 50px;
+         display: flex; 
     }
     
 }
