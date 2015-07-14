@@ -1,57 +1,90 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-      <base href="/">
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title ng-bind="pageTitle">Leiedal questionnaire</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width">
-      </head>
-      <body>
-        <!--<div ui-view></div>-->
 
-        <div id="landingpage" ng-controller="LandingController as landing">
-            <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()">
-                <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
-                <a href="#" ng-click="active='contact'">Contact</a>
-            </nav>
-            <div id="map" ng-controller="MapController as map">
-                <input type="text" name="adres" placeholder="Vind mijn adres." id="adres">s
-                <input type="submit">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title ng-bind="pageTitle">Leiedal questionnaire</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!--<div ui-view></div>-->
+
+    <div id="landingpage" class="test" ng-controller="LandingController as landing">
+        <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()">
+            <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
+            <a href="#" ng-click="active='contact'">Contact</a>
+        </nav>
+        <div id="map" ng-controller="MapController as map">
+            <input type="text" name="adres" placeholder="Vind mijn adres." id="adres">
+            <input type="submit">
+        </div>
+        <div id="calculate" ng-controller="CalcOptionsController as calcoptions">
+            <a href="#">Bereken uw energielabel</a>
+            <a href="#">Tips</a>
+        </div>
+    </div>
+
+    <!-- Questionairy landing page -->
+    <div id="qlandingpage" ng-controller="QlandingController as qlanding">
+        <p>qlandingpage</p>
+    </div>
+
+    <!-- Questionaire page //active//  -->
+    <div id="questionairepage" ng-controller="QuestionaireController as questionaire">
+        <nav></nav>
+        <!-- Slidemenu -->
+        <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()" ng-controller="SidebarController as sidebar">
+            <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
+            <a href="#" ng-click="active='contact'">Contact</a>
+        </nav>
+        <!-- Questions -->
+        <div id="questionsubpage" ng-controller="QuestionController as questions">
+            <p>questionsubpage</p>
+
+            <div id="progressbar" ng-controller="ProgressController as progress">
+
             </div>
-            <div id="calculate" ng-controller="CalcOptionsController as calcoptions">
-                <a href="#">Bereken uw energielabel</a>
-                <a href="#">Tips</a>
+            <div id="question" ng-controller="QuestController">
+                <button id="previous">P</button>
+                <button id="overview">O
+                    <button>
+                        <p id="question">Vraag</p>
+                        <button id="info">I</button>
+                        <button id="next">N</button>
             </div>
         </div>
+        <!-- Categorie -->
+        <div id="qcategoriesubpage" ng-controller="QCategorieController as categorie">
+            <p>qcategoriessubpage</p>
 
-        <!-- Questionairy landing page -->
-        <div id="qlandingpage" ng-controller="QlandingController as qlanding" >
-            <p>landing</p>
+            <div id=""></div>
         </div>
 
-        <!-- Questionaire page -->
-        <div id="questionairepage" ng-controller="QuestionaireController as questionaire">
-            <p>questionaire</p>
-        </div>
+    </div>
 
-        <!-- Frequently asked question page -->
-        <div id="faqpage" ng-controller="FaqController as faq">
-            <p>faq</p>
-        </div>
+    <!-- Frequently asked question page -->
+    <div id="faqpage" ng-controller="FaqController as faq">
+        <p>faqpage</p>
+    </div>
 
-        <!-- Contact page -->
-        <div id="contactpage" ng-controller="ContactController as contact">
-            <p>contact</p>
-        </div>
+    <!-- Contact page -->
+    <div id="contactpage" ng-controller="ContactController as contact">
+        <p>contactpage</p>
+    </div>
 
-        <!-- Energytipspage -->
-        <div id="energytipspage" ng-controller="EnergytipsController as contact">
-            <p>energytips</p>
-        </div>
+    <!-- Energytipspage -->
+    <div id="energytipspage" ng-controller="EnergytipsController as contact">
+        <p>energytipspage</p>
+    </div>
 
 
-        <script src="js/main.js"></script>
-      </body>
-      </html>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
