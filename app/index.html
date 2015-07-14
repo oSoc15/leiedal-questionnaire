@@ -10,9 +10,8 @@
       </head>
       <body>
         <!--<div ui-view></div>-->
-
         <div id="landingpage" ng-controller="LandingController as landing">
-            <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()">
+            <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()" ng-controller="SidebarController as sidebar">
                 <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
                 <a href="#" ng-click="active='contact'">Contact</a>
             </nav>
@@ -27,13 +26,46 @@
         </div>
 
         <!-- Questionairy landing page -->
-        <div id="qlandingpage" ng-controller="QlandingController as qlanding" >
+        <div id="qlandingpage" ng-controller="QlandingController as qlanding">
             <p>landing</p>
         </div>
 
         <!-- Questionaire page -->
         <div id="questionairepage" ng-controller="QuestionaireController as questionaire">
-            <p>questionaire</p>
+            <!-- Slidemenu -->
+            <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()" ng-controller="SidebarController as sidebar">
+                <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
+                <a href="#" ng-click="active='contact'">Contact</a>
+            </nav>
+            <!-- Questions -->
+            <div id="questionsubpage" ng-controller="QuestionController as questions">
+                <p>questionsubpage</p>
+
+                <div id="progressbar" ng-controller="ProgressController as progress">
+
+                </div>
+                <div id="question" ng-controller="QuestController">
+                    <button id="previous">P</button>
+                    <button id="overview">O<button>
+                    <p id="question">Vraag</p>
+                    <button id="info">I</button>
+                    <button id="next">N</button>
+                </div>
+            </div>
+            <!-- Categorie -->
+            <div id="qcategoriesubpage" ng-controller="QCategorieController as categorie">
+                <p>qcategoriessubpage</p>
+                <div id="categoryimage">
+
+                </div>
+                <div id="categoryprogress">
+
+                </div>
+                <div id="categorynumber">
+                    <p id="fracture">categoriën</p>
+                    <p id="categoryvalidation"></p>
+                </div>
+            </div>
         </div>
 
         <!-- Frequently asked question page -->
@@ -50,7 +82,6 @@
         <div id="energytipspage" ng-controller="EnergytipsController as contact">
             <p>energytips</p>
         </div>
-
 
         <script src="js/main.js"></script>
       </body>
