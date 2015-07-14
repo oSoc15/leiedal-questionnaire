@@ -9,7 +9,49 @@
       <meta name="viewport" content="width=device-width">
       </head>
       <body>
-        <div ui-view></div>
+        <!--<div ui-view></div>-->
+
+        <div id="landingpage" ng-controller="LandingController as landing">
+            <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()">
+                <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
+                <a href="#" ng-click="active='contact'">Contact</a>
+            </nav>
+            <div id="map" ng-controller="MapController as map">
+                <input type="text" name="adres" placeholder="Vind mijn adres." id="adres">s
+                <input type="submit">
+            </div>
+            <div id="calculate" ng-controller="CalcOptionsController as calcoptions">
+                <a href="#">Bereken uw energielabel</a>
+                <a href="#">Tips</a>
+            </div>
+        </div>
+
+        <!-- Questionairy landing page -->
+        <div id="qlandingpage" ng-controller="QlandingController as qlanding" >
+            <p>landing</p>
+        </div>
+
+        <!-- Questionaire page -->
+        <div id="questionairepage" ng-controller="QuestionaireController as questionaire">
+            <p>questionaire</p>
+        </div>
+
+        <!-- Frequently asked question page -->
+        <div id="faqpage" ng-controller="FaqController as faq">
+            <p>faq</p>
+        </div>
+
+        <!-- Contact page -->
+        <div id="contactpage" ng-controller="ContactController as contact">
+            <p>contact</p>
+        </div>
+
+        <!-- Energytipspage -->
+        <div id="energytipspage" ng-controller="EnergytipsController as contact">
+            <p>energytips</p>
+        </div>
+
+
         <script src="js/main.js"></script>
       </body>
       </html>
