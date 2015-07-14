@@ -11,9 +11,11 @@
       <body>
         <!--<div ui-view></div>-->
         <div id="landingpage" ng-controller="LandingController as landing">
-            <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()" ng-controller="SidebarController as sidebar">
-                <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
-                <a href="#" ng-click="active='contact'">Contact</a>
+            <nav id="slidemenu" ng-click="$event.preventDefault()" ng-controller="SidebarController as sidebar">
+                <ul>
+                    <li><a href="#" ng-click="active:">Veelgestelde vragen</a></li>
+                    <li><a href="#" ng-click="active:">Contact</a></li>
+                <ul>
             </nav>
             <div id="map" ng-controller="MapController as map">
                 <input type="text" name="adres" placeholder="Vind mijn adres." id="adres">s
@@ -38,22 +40,25 @@
                 <a href="#" ng-click="active='contact'">Contact</a>
             </nav>
             <!-- Questions -->
-            <div id="questionsubpage" ng-controller="QuestionController as questions">
+            <div id="questionbox" ng-controller="QuestionboxController as questions">
                 <p>questionsubpage</p>
 
                 <div id="progressbar" ng-controller="ProgressController as progress">
 
                 </div>
-                <div id="question" ng-controller="QuestController">
-                    <button id="previous">P</button>
-                    <button id="overview">O<button>
-                    <p id="question">Vraag</p>
-                    <button id="info">I</button>
-                    <button id="next">N</button>
+                <div id="question" ng-controller="QuestionController">
+                       <ul class="flex-container">
+                           <li id="previous" class="flex-item"><</li>
+                           <li id="overview" class="flex-item">o</li>
+                           <li id="question"class="flex-item">vraag</li>
+                           <li id="info"class="flex-item">i</li>
+                           <li id="next"class="flex-item">></li>
+                       </ul>
                 </div>
             </div>
+
             <!-- Categorie -->
-            <div id="qcategoriesubpage" ng-controller="QCategorieController as categorie">
+            <div id="categoriebox" ng-controller="CategorieboxController as categorie">
                 <p>qcategoriessubpage</p>
                 <div id="categoryimage">
 
