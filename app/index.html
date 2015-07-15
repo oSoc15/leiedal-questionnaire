@@ -4,109 +4,14 @@
       <base href="/">
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title ng-bind="pageTitle">Leiedal questionnaire</title>
+      <title ng-bind="pageTitle"></title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width">
-      </head>
-      <body ng-app="">
-        <!--<div ui-view></div>-->
+      <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+      <div ui-view></div>
 
-        <!--<div ui-view="landing"> </div>-->
-        <div id="landingpage" ng-controller="LandingCtrl">
-            <nav id="slidemenu" ng-click="$event.preventDefault()" ng-controller="SidebarCtrl">
-                <ul>
-                    <li ng-repeat="link in links">
-                        <a href="{{link.url}}"> {{link.name}}</a>
-                    </li>
-                <ul>
-            </nav>
-            <div id="map" -ng-controller="MapController as map">
-                <input type="text" name="adres" placeholder="Vind mijn adres." id="adres">s
-                <input type="submit">
-            </div>
-            <div id="calculate" -ng-controller="CalcOptionsController as calcoptions">
-                <a href="#">Bereken uw energielabel</a>
-                <a href="#">Tips</a>
-            </div>
-        </div>
-
-        <!-- Questionairy landing page -->
-        <div id="questionnarylandingpage" ng-controller="QuestLandCtrl">
-            <p>landing</p>
-        </div>
-
-        <!-- Questionaire page -->
-        <div id="questionnairepage" ng-controller="QuestionnaireCtrl">
-            <!-- Slidemenu -->
-            <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()" ng-controller="SidebarController as sidebar">
-                <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
-                <a href="#" ng-click="active='contact'">Contact</a>
-            </nav>
-            <!-- Questions -->
-            <div id="questionbox" ng-controller="QuestionboxCtrl">
-                <p>questionsubpage</p>
-
-                <div id="progressbar" ng-controller="ProgressController">
-
-                </div>
-                <div id="question" ng-controller="QuestionController">
-                       <ul class="flex-container">
-                           <li id="previous" class="flex-item"><</li>
-                           <li id="overview" class="flex-item">o</li>
-                           <li id="question"class="flex-item">vraag</li>
-                           <li id="info"class="flex-item">i</li>
-                           <li id="next"class="flex-item">></li>
-                       </ul>
-                </div>
-            </div>
-
-            <!-- Categorie -->
-            <div id="categorybox" ng-controller="CategoryboxCtrl">
-                <p>qcategoriessubpage</p>
-                <div id="categoryimage">
-
-                </div>
-                <div id="categoryprogress">
-
-                </div>
-                <div id="categorynumber">
-                    <p id="fracture">categoriën</p>
-                    <p id="categoryvalidation"></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Frequently asked question page -->
-        <div id="faqpage" ng-controller="FaqCtrl">
-            <p>faq</p>
-        </div>
-
-        <!-- Contact page -->
-        <div id="contactpage" ng-controller="ContactCtrl">
-            <form >
-                <label for="name">Naam</label>
-                <input type="text" ng-model="contact.name" placeholder="Uw naam"><br>
-                <label for="email">E-mail</label>
-                <input type="text" ng-model="contact.email" placeholder="Uw e-mailadres"><br>
-                <label for="category">Soort vraag</label>
-                <select>
-                    <option value="energielabel">Energielabel berekenen</option>
-                    <option value="adrespunten">Adrespunten</option>
-                    <option value="tips">Tips</option>
-                    <option value="overig">Overig</option>
-                </select>
-                <label for="message">Bericht</label>
-                <textarea name="message" placeholder="Uw bericht"></textarea>
-            </form>
-        </div>
-
-        <!-- Energytipspage -->
-        <div id="energytipspage" ng-controller="EnergytipsCtrl">
-            <p>energytips</p>
-        </div>
-
-        <!-- scripts -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-        <script src="js/main.js"></script>
-      </body>
-      </html>
+      <script src="js/main.js"></script>
+  </body>
+</html>
