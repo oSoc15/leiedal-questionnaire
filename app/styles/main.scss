@@ -11,7 +11,7 @@ body,
     background-color: #f5f5f5;
     font-size: $font-size--xs;
     font-family: 'source_sans_prosemibold';
-   
+    color: $black;
 }
 
 p {
@@ -51,6 +51,14 @@ a:hover {
     display: none;
 }
 
+#qcategoriesubpage {
+    display: none;
+}
+
+#slidemenu {
+    display: none;
+}
+
 //scss
 #questionairepage {
     background-color: $grey;
@@ -61,9 +69,15 @@ a:hover {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: #000;
         width: 100%;
-        height: 60px;
+        height: 50px;
+        #menu {
+            width: 50px;
+            height: 50px;
+            background-image: url("../images/menu.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
     }
     #questionsubpage {
         position: absolute;
@@ -78,13 +92,13 @@ a:hover {
         background-color: $grey-dark;
         height: 10px;
         width: 100%;
+        
+        #progress {
+        width: 150px;
+        background-color: $green;
+        height: 10px;
     }
-    
-            #progress {
-        width: 50px;
-            background-color: $green;
-            height: 10px;
-        }
+    }
     
     //use flex boxes 
     .flex-container {
@@ -100,49 +114,42 @@ a:hover {
         justify-content: space-around;
     }
     .flex-item {
-        
         padding: 5px;
         width: 20px;
         height: 50px;
         margin-top: 10px;
         margin: 0;
         line-height: 50px;
-        color: $grey-dark;
+        color: $grey;
         font-weight: bold;
         font-size: 1.5em;
         text-align: center;
         flex-grow: 1;
     }
-    
     .grow {
-      flex-grow: 4;
+        flex-grow: 4;
     }
-    
     .arrow-left {
-   background-image: url("../images/arrow-left.svg");
+        background-image: url("../images/arrow-left.svg");
         background-repeat: no-repeat;
         background-position: center center;
     }
-    
     .arrow-right {
-   background-image: url("../images/arrow-right.svg");
+        background-image: url("../images/arrow-right.svg");
         background-repeat: no-repeat;
         background-position: center center;
     }
-    
-        .overview {
-   background-image: url("../images/overview.svg");
+    .overview {
+        background-image: url("../images/overview.svg");
         background-repeat: no-repeat;
         background-position: center center;
     }
-    
     .info {
-   background-image: url("../images/info.svg");
+        background-image: url("../images/info.svg");
         background-repeat: no-repeat;
         background-position: center center;
     }
-    
     .question {
-    font-variant: small-caps; 
+        font-variant: small-caps;
     }
 }

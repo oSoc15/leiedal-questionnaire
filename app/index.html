@@ -39,7 +39,11 @@
 
     <!-- Questionaire page //active//  -->
     <div id="questionairepage" ng-controller="QuestionaireController as questionaire">
-        <nav></nav>
+        <!-- Header-->
+        <nav>
+            <!-- Delicious burger-->
+            <div id="menu"></div>
+        </nav>
         <!-- Slidemenu -->
         <nav id="slidemenu" class="{{active}}" ng-click="$event.preventDefault()" ng-controller="SidebarController as sidebar">
             <a href="#" ng-click="active='faq'">Veelgestelde vragen</a>
@@ -64,7 +68,7 @@
         </div>
         <!-- Categorie -->
         <div id="qcategoriesubpage" ng-controller="QCategorieController as categorie">
-            <p>qcategoriessubpage</p>
+            <p>qcategoriesubpage</p>
 
             <div id=""></div>
         </div>
