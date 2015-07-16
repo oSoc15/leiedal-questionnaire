@@ -25,28 +25,64 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
         templateUrl: 'helloworld.html'
     });*/
 
-        // HOMEPAGE WITH MULTIPLE NAMED VIEWS
+        // homepage with multiple named views
         .state('home', {
             url: '/',
             views: {
                 // HOMEPAGE
                 '': {templateUrl: 'page-home.html'},
-                // DUMMY PAGE -> SAMPLE
-                //'helloworld@home': {templateUrl: 'helloworld.html'}
+                'options@home': {templateUrl: 'sub-calcoptions.html'},
+                'menu@home': {templateUrl: 'sub-menu.html'},
+                'search@home': {templateUrl: 'sub-search.html'}
             }
         })
 
-        // FAQPAGE
-        .state('faq', {
-            url: '/veel-gestelde-vragen',
-            templateUrl: 'page-faq.html'
+        // map page with multiple named views
+        .state('map', {
+            url: '/map',
+            views:{
+                '': {templateUrl: 'page-map.html'},
+                'menu@map': {templateUrl: 'sub-menu.html'}
+            }
         })
 
-        // CONTACTPAGE
+        // landing questionnaire page with multiple views
+        .state('landingquestionnaire', {
+            url: '/infoquestionnaire',
+            views: {
+                '': {templateUrl: 'page-landing-questionnaire.html'},
+                'menu@landingquestionnaire': {templateUrl: 'sub-menu.html'}
+            }
+        })
+
+        // questionnaire page with multiple views
+        .state('questionnaire', {
+            url: '/questionnaire',
+            views: {
+                '': {templateUrl: 'page-questionnaire.html'},
+                'menu@questionnaire': {templateUrl: 'sub-menu.html', controller: 'QuestionCtrl'}
+            }
+        })
+
+        // faq page with multiple views
+        .state('faq', {
+            url: '/veel-gestelde-vragen',
+            views:{
+                '': {templateUrl: 'page-faq.html'},
+                'menu@faq': {templateUrl: 'sub-menu.html'}
+            }
+
+        })
+
+        // contact page with multiple views
         .state('contact', {
             url: '/contact',
-            templateUrl: 'page-contact.html'
-        })
+            views: {
+                '': {templateUrl: 'page-contact.html'},
+                'menu@contact': {templateUrl: 'sub-menu.html'}
+            }
+
+        });
 
 
   $urlRouterProvider.otherwise('/');

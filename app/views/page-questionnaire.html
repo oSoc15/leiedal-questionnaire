@@ -1,0 +1,29 @@
+<!-- QUESTIONNAIRE PAGE -->
+
+<!-- menuview -->
+<div ui-view="menu"></div>
+
+<!-- section questionnaire -->
+<section id="questionnaire" ng-controller="QuestionCtrl">
+
+    <!-- navigation -->
+    <ul>
+        <li id="previous">'<<'</li>
+        <li id="overview">Overview</li>
+        <li id="question" ng-repeat="question in questions">Vraag: {{ QuestionCtrl.question }}</li>
+        <li id="info" ng-repeat="info in informations">Info: {{ information }}</li>
+        <li id="next">'>>'</li>
+    <ul>
+
+    <!-- progressbar -->
+    <div id="progressbar">
+        <div id="progress">
+
+        </div>
+    </div>
+
+    <!-- awnser -->
+    <div id="awnsers">
+
+    </div
+</section>
