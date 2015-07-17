@@ -2,12 +2,33 @@
 
 var angular = require('angular');
 
-//js
-document.getElementById("questionsubpage").addEventListener("wheelup", myFunction);
+//slidemenu
 
-function myFunction() {
-    this.style.backgroundColor = 'red';
+document.getElementById('menu').addEventListener('click', function() {
+    showMenu();
+});
+
+
+function showMenu() {
+    console.log('click');
+    var menu = document.getElementById('items');
+    var shadow = document.getElementById('slider');
+    var button = document.getElementById('menu');
+
+    menu.className = 'menu-in';
+    shadow.className = 'shadow-in';
+    button.className = 'none';
 }
+
+document.getElementById('slider').addEventListener('click', function() {
+    var menu = document.getElementById('items');
+    var shadow = document.getElementById('slider');
+    var button = document.getElementById('menu');
+
+    menu.className = 'menu-out';
+    shadow.className = 'shadow-out';
+    button.className = 'button';
+});
 
 
 // angular modules

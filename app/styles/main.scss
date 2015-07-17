@@ -1,6 +1,8 @@
 @import 'vars';
 @import 'typography';
 @import 'settings';
+@import 'slider';
+
 html,
 body,
 #map {
@@ -53,6 +55,7 @@ a:hover {
     background-color: $grey;
     width: 100%;
     height: 100vh;
+
     nav {
         position: fixed;
         top: 0;
