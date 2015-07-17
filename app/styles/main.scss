@@ -1,7 +1,6 @@
 @import 'vars';
 @import 'typography';
-@import '_settings';
-
+@import 'settings';
 html,
 body,
 #map {
@@ -14,52 +13,41 @@ body,
     font-family: 'Source Sans Pro Semibold';
     color: $black;
 }
-
 p {
     -webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
-
 a {
     color: #3B81FD;
     text-decoration: none;
 }
-
 a:hover {
     text-decoration: underline;
 }
-
 // Temp Code
 #landingpage {
     display: none;
 }
-
 #qlandingpage {
     display: none;
 }
-
 #faqpage {
     display: none;
 }
-
 #contactpage {
     display: none;
 }
-
 #energytipspage {
     display: none;
 }
-
 #qcategoriesubpage {
     display: none;
 }
-
 #slidemenu {
     display: none;
 }
-
 //scss
 #questionairepage {
     background-color: $grey;
@@ -77,17 +65,24 @@ a:hover {
             background-image: url("../images/menu.svg");
             background-repeat: no-repeat;
             background-position: center center;
-            @media #{$tablet}{display: none;}
+            @media #{$tablet} {
+                display: none;
+            }
         }
     }
     #questionsubpage {
-        position: fixed;
+        position: relative;
         top: 45vh;
         left: 0;
         background-color: $grey-light;
         width: 100%;
-        height: 55vh;
-        @media #{$tablet}{top: 0;left: 0;width: 350px;height: 100vh;}
+        height: 91vh;
+        @media #{$tablet} {
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 100vh;
+        }
     }
     .progressbar {
         position: relative;
@@ -130,22 +125,50 @@ a:hover {
     .answers {
         position: relative;
         width: 92%;
-        height: 70vh;
+        height: 40vh;
         margin-left: auto;
         margin-right: auto;
+        display: -webkit-flex;
+        display: block;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        /* You can set flex-wrap and flex-direction individually */
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        /* Or do it all in one line with flex flow */
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+        /* tweak the where items line up on the row */
+        /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+        -webkit-align-content: flex-end;
+        align-content: flex-end;
+                @media #{$tablet} {
+            width: 150px;
 
-
+        }
         .answer-button {
             position: relative;
             width: 46%;
             height: 46%;
             margin-left: 2%;
             margin-right: 2%;
-            margin-bottom: 4%;
+            margin-bottom: 2%;
+            margin-top: 2%;
             background-color: $grey-dark;
             display: inline-block;
             float: left;
+                            @media #{$tablet} {
+            width: 100%;
+            float: none;
         }
+        }
+        @import 'answers';
+
+
     }
     .grow {
         flex-grow: 4;
@@ -178,7 +201,11 @@ a:hover {
         position: fixed;
         width: 100%;
         height: 45vh;
-        @media #{$tablet}{top: 0;left: 0;height: 100vh;}
+        @media #{$tablet} {
+            top: 0;
+            left: 0;
+            height: 100vh;
+        }
         img {
             position: absolute;
             width: 190px; //height:153px  //use liquid height?
@@ -186,8 +213,14 @@ a:hover {
             margin-left: -95px;
             bottom: 20vh;
             margin-bottom: -70px;
-            @media #{$tablet}{position: absolute;width: 400px;left: 63%;margin-left: -161px;bottom: 55vh;margin-bottom: -200px;}
-
+            @media #{$tablet} {
+                position: absolute;
+                width: 400px;
+                left: 63%;
+                margin-left: -161px;
+                bottom: 55vh;
+                margin-bottom: -200px;
+            }
         }
         .label-leiedal {
             width: 69px;

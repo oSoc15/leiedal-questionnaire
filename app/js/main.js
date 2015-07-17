@@ -2,6 +2,14 @@
 
 var angular = require('angular');
 
+//js
+document.getElementById("questionsubpage").addEventListener("wheelup", myFunction);
+
+function myFunction() {
+    this.style.backgroundColor = 'red';
+}
+
+
 // angular modules
 require('angular-ui-router');
 require('./templates');
