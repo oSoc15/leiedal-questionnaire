@@ -9,11 +9,15 @@
     <!-- navigation -->
     <ul>
         <li id="previous">'<<'</li>
+
         <li id="overview">Overview</li>
-        <li id="question" ng-repeat="question in questions">Vraag: {{ QuestionCtrl.question }}</li>
-        <li id="info" ng-repeat="info in informations">Info: {{ information }}</li>
         <li id="next">'>>'</li>
     <ul>
+
+    <!-- shows currently all questions -->
+    <ul ng-repeat="question in questions">
+        <li>{{question.description}}</li>
+    </ul>
 
     <!-- progressbar -->
     <div id="progressbar">
@@ -25,5 +29,5 @@
     <!-- awnser -->
     <div id="awnsers">
 
-    </div
+    </div>
 </section>
