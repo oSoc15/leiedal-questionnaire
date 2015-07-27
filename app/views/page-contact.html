@@ -4,20 +4,55 @@
 
 <section id="contactpage">
     <h1>Contact</h1>
-    
-    <form >
-        <label for="name">Naam</label>
-        <input type="text" placeholder="Uw naam"><br>
-        <label for="email">E-mail</label>
-        <input type="text" placeholder="Uw e-mailadres"><br>
-        <label for="category">Soort vraag</label>
-        <select>
-            <option value="energielabel">Energielabel berekenen</option>
-            <option value="adrespunten">Adrespunten</option>
-            <option value="tips">Tips</option>
-            <option value="overig">Overig</option>
-        </select><br>
+
+    <!-- novalidate disables HTML5 validation -->
+    <form name="contactForm" ng-controller="ContactCtrl" novalidate>
+
+        <!-- Name -->
+        <label for="name" ng-minlenght="2" ng-maxlenght="50">Naam</label><br>
+        <input type="text" name="name" placeholder="Uw naam" ng-model="name" required>
+        <!-- Error messages -->
+        <span style="color:red" ng-show="contactForm.name.$dirty && contactForm.name.$invalid">
+            <span ng-show="contactForm.name.$error.required">Verplicht veld</span>
+        </span>
+
+        <br><br>
+
+        <!-- Emailaddress -->
+        <label for="email">E-mail</label><br>
+        <input type="email" name="email" placeholder="Uw e-mailadres" required>
+        <!-- Error messages -->
+        <span style="color:red" ng-show="contactForm.email.$dirty && contactForm.email.$invalid">
+            <span ng-show="contactForm.email.$error.required">Verplicht veld</span>
+            <span ng-show="contactForm.email.$error.email">Onjuiste e-mailadres</span>
+        </span>
+
+        <br><br>
+
+        <!-- Category -->
+        <label for="category">Soort vraag</label><br>
+        <!-- Shows dynamically the options in the dropdownbox -->
+        <select ng-model="selectedCategory" ng-options="category.id as category.name for category in categories">
+            <!-- Placeholder to choose a category -->
+            <option value="" disabled selected>Selecteer een categorie</option>
+        </select>
+
+        <br><br>
+
+        <!-- Message -->
         <label for="message">Bericht</label><br>
-        <textarea name="message" placeholder="Uw bericht"></textarea>
+        <textarea name="message" placeholder="Uw bericht" ng-model="message" required ng-minlenght="50" ng-maxlenght="500"></textarea>
+        <!-- Error messages -->
+        <span style="color:red" ng-show="contactForm.name.$dirty && contactForm.name.$invalid">
+            <span ng-show="contactForm.name.$error.required">Verplicht veld</span>
+        </span>
+
+        <br><br>
+
+        <!-- Submit button -->
+        <!-- Only submits when there is no invalid fields -->
+        <input type="submit" value="Verstuur" ng-disable="contactForm.email.$dirty && contactForm.email.$invalid ||
+        contactForm.name.$dirty && contactForm.name.$invalid || contactForm.name.$dirty && contactForm.name.$invalid">
+
     </form>
 </section>
