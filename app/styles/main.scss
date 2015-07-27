@@ -3,6 +3,7 @@
 @import 'settings';
 @import 'slider';
 
+
 html,
 body,
 #map {
@@ -26,7 +27,15 @@ a {
     text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+no-link {
+text-decoration: none;
+}
+
+no-link:hover {
+text-decoration: none;
 }
 // Temp Code
 #landingpage {

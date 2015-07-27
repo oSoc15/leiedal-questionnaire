@@ -30,6 +30,15 @@ document.getElementById('slider').addEventListener('click', function() {
     button.className = 'button';
 });
 
+document.getElementById('items').addEventListener('click', function() {
+    var menu = document.getElementById('items');
+    var shadow = document.getElementById('slider');
+    var button = document.getElementById('menu');
+
+    menu.className = 'menu-out';
+    shadow.className = 'shadow-out';
+    button.className = 'button';
+});
 
 // angular modules
 require('angular-ui-router');
@@ -60,4 +69,19 @@ angular.element(document).ready(function() {
 
   angular.bootstrap(document, ['app']);
 
+});
+
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
 });
