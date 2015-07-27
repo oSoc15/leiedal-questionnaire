@@ -5,21 +5,20 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function QuestionCtrl() {
 
-    //view model
-    var vm = this;
+// Question controller
+// Shows all question
+function QuestionCtrl($scope, QuestionnaireService){
+    // Returns a single question
+    // GET-request to http://osocserver.app/api/questions/:id
+    /*var question = QuestionnaireService.get({id: 1}, function(){
+        console.log(question);
+    });*/
 
-    vm.question = 0;
-
-    vm.nextQuestion = function(){
-        vm.question += 1;
-    };
-
-    vm.previousQuestion = function() {
-        vm.question -= 1;
-    }
-
+    // Returns all questions
+    // GET-request to http://osocserver.app/api/questions
+    $scope.questions = QuestionnaireService.query();
+    console.log($scope.questions);
 }
 
 controllersModule.controller('QuestionCtrl', QuestionCtrl);
