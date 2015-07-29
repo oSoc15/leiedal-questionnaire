@@ -1,7 +1,7 @@
 'use strict';
 
 var AppSettings = {
-  appTitle: 'Plongg',
+  appTitle: 'Plong',
   apiUrl: '/api/v1'
 };
 
