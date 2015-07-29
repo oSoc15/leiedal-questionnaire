@@ -7,8 +7,8 @@ var servicesModule = require('./_index.js');
  */
 
 function QuestionnaireService($resource){
-    return $resource('http://osocserver.app/api/questions/:id', {}, {
-        get:    {method: 'GET'}
+    return $resource('http://leiedal.app/api/questions/:id', {
+        get:    {method: 'GET', isArray: 'true'}
     });
 }
 
