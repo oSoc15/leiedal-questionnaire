@@ -11,7 +11,7 @@ var controllersModule = require('./_index');
 function QuestionCtrl($scope, QuestionnaireService){
 
     // Returns a single question
-    var question = QuestionnaireService.get({id: curQuestion}, function(){
+    var question = QuestionnaireService.get({id: 1}, function(){
         $scope.question = question;
         console.log($scope.question);
     });
