@@ -9,16 +9,28 @@ var controllersModule = require('./_index');
 // Question controller
 // Shows all question
 function QuestionCtrl($scope, QuestionnaireService){
+
     // Returns a single question
-    // GET-request to http://osocserver.app/api/questions/:id
-    /*var question = QuestionnaireService.get({id: 1}, function(){
-        console.log(question);
-    });*/
+    var question = QuestionnaireService.get({id: curQuestion}, function(){
+        $scope.question = question;
+        console.log($scope.question);
+    });
 
     // Returns all questions
-    // GET-request to http://osocserver.app/api/questions
-    $scope.questions = QuestionnaireService.query();
+    var listQuestions = QuestionnaireService.query();
+    $scope.listQuestions = listQuestions;
+    console.log($scope.listQuestions);
+
+    $scope.question_index = 1;
+
+
+    $scope.testest = function()
+    {
+        console.log("werkt het");
+            $scope.currentQuestion = "D";
+    };
     console.log($scope.questions);
+
 }
 
 controllersModule.controller('QuestionCtrl', QuestionCtrl);
