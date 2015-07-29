@@ -1,33 +1,54 @@
 <!-- QUESTIONNAIRE PAGE -->
+<div id="questionairepage">
+    <!-- menuview -->
+    <div ui-view="menu"></div>
 
-<!-- menuview -->
-<div ui-view="menu"></div>
+    <div id="" class="illustrationbox">
+        <img src="images/main_home.svg" />
+        <div id="" class="label-leiedal"></div>
+    </div>
 
-<!-- section questionnaire -->
-<section id="questionnaire" ng-controller="QuestionCtrl">
+    <!-- animation/illustration -->
+    <div id="questionsubpage">
+                <div id="" class="progressbar">
+                    <div id="" class="progress" ></div>
+                </div>
+                <div id="question">
+                            <ul class="flex-container">
+                                <li id="previous" class="flex-item arrow-left"></li>
+                                <li id="overview" class="flex-item overview"></li>
+                                <li id="question"class="flex-item grow">{{question.description}}</li>
+                                <li id="info"class="flex-item info"></li>
+                                <li id="next"class="flex-item arrow-right"></li>
+                            </ul>
+                </div>
 
-    <!-- navigation -->
-    <ul>
-        <li id="previous">'<<'</li>
+                <div id="" class="answers" ng-repeat="answer in question.answers">
+                    <div class="answer-button dak">{{answer.title}}</div>
+                    <!--<div class="answer-button dak schuin"></div>
+                    <div class="answer-button dak plat"></div>
+                    <div class="answer-button dak"></div>
+                    <div class="answer-button dak"></div>
+                    <div class="answer-button dak"></div>
+                    <div class="answer-button dak"></div>-->
+                </div>
 
-        <li id="overview">Overview</li>
-        <li id="next">'>>'</li>
-    <ul>
+                <nav>
+                <!-- Delicious burger-->
+                <div id="menu" class=""></div>
+            </nav>
 
-    <!-- shows currently all questions -->
-    <ul ng-repeat="question in questions">
-        <li>{{question.description}}</li>
-    </ul>
+                <div id="slider" class="slider-menu"></div>
+                <div id="items" class="menu-items"></div>
 
-    <!-- progressbar -->
-    <div id="progressbar">
-        <div id="progress">
+                <div id="shadow" class="info-shadow"></div>
+                <div id="info" class="info"></div>
 
+            <!-- Categorie -->
+            <div id="qcategoriesubpage">
+                <p>qcategoriesubpage</p>
+
+                <div id=""></div>
+            </div>
         </div>
-    </div>
-
-    <!-- awnser -->
-    <div id="awnsers">
-
-    </div>
-</section>
+</div>
