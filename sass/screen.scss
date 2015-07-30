@@ -1,14 +1,261 @@
-// Variables
-@import "variables";
+@import 'vars';
+@import 'typography';
+@import 'settings';
+@import 'slider';
 
-// Reset
-@import "public/bower_components/normalize.css/normalize";
 
-// Mixins
-@import "public/bower_components/sass-flex-mixin/flexbox";
+html,
+body,
+#map {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-size: $font-size--xs;
+    font-family: 'Source Sans Pro';
+    color: $black;
+}
+p {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+a {
+    color: #3B81FD;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
 
-// Base
-@import "base";
+no-link {
+text-decoration: none;
+}
 
-// Components
-@import "components";
+no-link:hover {
+text-decoration: none;
+}
+// Temp Code
+#landingpage {
+    display: none;
+}
+#qlandingpage {
+    display: none;
+}
+#faqpage {
+    display: none;
+}
+#contactpage {
+    display: none;
+}
+#energytipspage {
+    display: none;
+}
+#qcategoriesubpage {
+    display: none;
+}
+#slidemenu {
+    display: none;
+}
+
+
+//scss
+
+// QUESTIONNAIRE PAGE SCSS
+// =======================
+#questionairepage {
+    background-color: $grey;
+    width: 100%;
+    height: 100vh;
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        #menu {
+            width: 50px;
+            height: 50px;
+            background-image: url("../assets/images/menu.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            @media #{$tablet} {
+                display: none;
+            }
+        }
+    }
+
+    #questionsubpage {
+        position: relative;
+        top: 45vh;
+        left: 0;
+        background-color: $grey-light;
+        width: 100%;
+        height: 91vh;
+        @media #{$tablet} {
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 100vh;
+        }
+    }
+
+    .progressbar {
+        position: relative;
+        background-color: $grey-dark;
+        height: 10px;
+        width: 100%;
+        .progress {
+            width: 35%;
+            background-color: $green;
+            height: 10px;
+        }
+    }
+
+    //use flex boxes
+    .flex-container {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row;
+        justify-content: space-around;
+    }
+    .flex-item {
+        padding: 5px;
+        width: 20px;
+        height: 70px;
+        margin-top: 10px;
+        margin: 0;
+        line-height: 70px;
+        color: $grey;
+        font-weight: bold;
+        font-size: 1.5em;
+        text-align: center;
+        flex-grow: 1;
+        font-variant: small-caps;
+    }
+
+    // AWNSERS
+    // =======
+    .answers {
+        position: relative;
+        width: 92%;
+        height: 40vh;
+        margin-left: auto;
+        margin-right: auto;
+        display: -webkit-flex;
+        display: block;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        /* You can set flex-wrap and flex-direction individually */
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        /* Or do it all in one line with flex flow */
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+        /* tweak the where items line up on the row */
+        /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+        -webkit-align-content: flex-end;
+        align-content: flex-end;
+                @media #{$tablet} {
+            width: 150px;
+
+        }
+        // Button
+        .answer-button {
+            position: relative;
+            width: 46%;
+            height: 46%;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 2%;
+            margin-top: 2%;
+            background-color: $grey-dark;
+            display: inline-block;
+            float: left;
+
+            @media #{$tablet} {
+                width: 100%;
+                float: none;
+            }
+        }
+        //@import 'answers';
+
+
+    }
+    .grow {
+        flex-grow: 4;
+    }
+    .icon-left {
+        background-image: url("../assets/images/arrow-left.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon-right {
+        background-image: url("../assets/images/arrow-right.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon-overview {
+        background-image: url("../assets/images/overview.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon-info {
+        background-image: url("../assets/images/info.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 20px;
+    }
+    .question {
+        font-variant: small-caps; //check if used
+    }
+    .illustrationbox {
+        position: fixed;
+        width: 100%;
+        height: 45vh;
+        @media #{$tablet} {
+            top: 0;
+            left: 0;
+            height: 100vh;
+        }
+        img {
+            position: absolute;
+            width: 190px; //height:153px  //use liquid height?
+            left: 50%;
+            margin-left: -95px;
+            bottom: 20vh;
+            margin-bottom: -70px;
+            @media #{$tablet} {
+                position: absolute;
+                width: 400px;
+                left: 63%;
+                margin-left: -161px;
+                bottom: 55vh;
+                margin-bottom: -200px;
+            }
+        }
+        .label-leiedal {
+            width: 69px;
+            height: 27px;
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            background-image: url("../assets/images/partnerLogo.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+}
