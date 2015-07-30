@@ -22,7 +22,12 @@
 					<li><a href="#">Help</a></li>
 				</ul>
 			</nav>
-			<div class="label">Uw huidig label</div>
+			<div class="label">
+				Uw huidig label
+				<div class="label___letter" ng-bind="label()">
+
+				</div>
+			</div>
 			<div class="square">
 				<div class="visual">
 					<!-- TODO: insert platform svg -->
@@ -33,6 +38,7 @@
 					<div class="roof"></div>
 					<!-- TODO: insert roofs -->
 					<div ng-if="stor.r.roof" ng-class="c('roof')">
+						<img ng-src="c('roof')"/>
 						<br>roof svg</div>
 				</div>
 			</div>
@@ -69,4 +75,3 @@
 </body>
 
 </html>
-
