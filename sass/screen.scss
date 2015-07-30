@@ -31,11 +31,11 @@ a:hover {
 }
 
 no-link {
-text-decoration: none;
+    text-decoration: none;
 }
 
 no-link:hover {
-text-decoration: none;
+    text-decoration: none;
 }
 // Temp Code
 #landingpage {
@@ -134,7 +134,7 @@ text-decoration: none;
         height: 70px;
         margin-top: 10px;
         margin: 0;
-        line-height: 70px;
+        line-height: 25px;
         color: $grey;
         font-weight: bold;
         font-size: 1.5em;
@@ -169,29 +169,34 @@ text-decoration: none;
         /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
         -webkit-align-content: flex-end;
         align-content: flex-end;
-                @media #{$tablet} {
+        @media #{$tablet} {
             width: 150px;
 
         }
         // Button
         .answer-button {
             position: relative;
-            width: 46%;
-            height: 46%;
-            margin-left: 2%;
-            margin-right: 2%;
-            margin-bottom: 2%;
-            margin-top: 2%;
-            background-color: $grey-dark;
+            width: 200px;
+            height: 100px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-top: 50px;
+            background-color: #fff;
+            text-align: center;
             display: inline-block;
             float: left;
+            font-size: 20px;
 
             @media #{$tablet} {
                 width: 100%;
                 float: none;
             }
         }
-        //@import 'answers';
+        // Selected instance of the answer 
+        .answer-selected{
+            border: 5px solid green;
+        }
+        @import 'answers';
 
 
     }
@@ -219,7 +224,11 @@ text-decoration: none;
         background-position: center center;
         background-size: 20px;
     }
+    #question {
+        padding-top: 20px;
+    }
     .question {
+        padding: 0;
         font-variant: small-caps; //check if used
     }
     .illustrationbox {
