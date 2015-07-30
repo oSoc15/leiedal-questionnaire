@@ -95,9 +95,8 @@ angular.module('app', [])
 		var Question = $resource('mock-api/questions.json');
 		$scope.questions = Question.query();
 
-		// Load residence if not in storage
-		if (!$scope.stor.r)
-			$scope.stor.r = $resource('mock-api/myresidence.json').get();
+		// Load residence always from api
+		$scope.stor.r = $resource('mock-api/myresidence.json').get(function() {});
 
 		// Currently selected question
 		$scope.q = 0;
@@ -141,18 +140,26 @@ angular.module('app', [])
 
 			// Initialize the score
 			var score = 0;
+			if(!a)return '';
 
-			// SCORES
-			// ======
-			// - size
-			score += 100-(a.size||1)*30;
-
-			// - floors
-			score += 100-(a.floors||2)*30;
+			// floors
+			score += 100 - (a.floors || 2) * 30;
 
 			score += 100-(a.basement||1)*30;
 
 			return score;
 		};
+
+		// Size dependent
+		$scope.s = function(key) {
+			return 'assets/s' + ($scope.stor.r.answers.size || 2) + '-' + key + '.svg';
+		};
+
+		// Size and floor dependent
+		$scope.sf = function(key) {
+			if(!$scope.stor.r||!$scope.stor.r.answers)return '';
+			return 'assets/s' + ($scope.stor.r.answers.size || 2) + 'f' + ($scope.stor.r.answers.floors || 2) + '-' + key + '.svg';
+		};
 	}
-]);*/
+]);
+*/
