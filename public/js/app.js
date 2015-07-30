@@ -16,9 +16,8 @@ angular.module('app', ['ngResource', 'ngStorage'])
 		var Question = $resource('mock-api/questions.json');
 		$scope.questions = Question.query();
 
-		// Load residence if not in storage
-		if (!$scope.stor.r)
-			$scope.stor.r = $resource('mock-api/myresidence.json').get();
+		// Load residence always from api
+		$scope.stor.r = $resource('mock-api/myresidence.json').get(function() {});
 
 		// Currently selected question
 		$scope.q = 0;
@@ -37,8 +36,8 @@ angular.module('app', ['ngResource', 'ngStorage'])
 			// Sync with API
 
 			// Next question
-			if((answer.type||question.type)!=='year')
-			$scope.q++;
+			if ((answer.type || question.type) !== 'year')
+				$scope.q++;
 
 
 		};
@@ -48,11 +47,24 @@ angular.module('app', ['ngResource', 'ngStorage'])
 
 			var a = $scope.stor.r.answers;
 			var score = 0;
+			if(!a)return '';
 
 			// floors
-			score += 100-(a.floors||2)*30;
+			score += 100 - (a.floors || 2) * 30;
 
 			return score;
 		};
+
+		// Size dependent
+		$scope.s = function(key) {
+			return 'assets/s' + ($scope.stor.r.answers.size || 2) + '-' + key + '.svg';
+		};
+
+		// Size and floor dependent
+		$scope.sf = function(key) {
+			if(!$scope.stor.r||!$scope.stor.r.answers)return '';
+			return 'assets/s' + ($scope.stor.r.answers.size || 2) + 'f' + ($scope.stor.r.answers.floors || 2) + '-' + key + '.svg';
+		};
 	}
 ]);
+

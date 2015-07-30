@@ -31,15 +31,21 @@
 			<div class="square">
 				<div class="visual">
 					<!-- TODO: insert platform svg -->
-					<div class="platform"></div>
-					<!-- TODO: insert housesizes -->
-					<div class="house"></div>
-					<!-- TODO: remove this one and use thingie below -->
-					<div class="roof"></div>
-					<!-- TODO: insert roofs -->
-					<div ng-if="stor.r.roof" ng-class="c('roof')">
-						<img ng-src="c('roof')"/>
-						<br>roof svg</div>
+					<div class="platform">
+						<img ng-src="assets/platform.svg">
+					</div>
+					<div>
+						<img ng-src="{{sf('home')}}">
+					</div>
+					<div ng-if="stor.r.floors">
+						<img ng-src="{{sf('floors')}}">
+					</div>
+					<div ng-if="stor.r.roof">
+						<img ng-src="{{sf('roof')}}">
+					</div>
+					<div ng-if="stor.r.basement">
+						<img ng-src="{{s('basement')}}">
+					</div>
 				</div>
 			</div>
 			<footer class="powered">
