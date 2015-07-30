@@ -1,0 +1,10 @@
+.progress {
+	background: $neutral;
+	&__done {
+		transition: width 1s;
+		height: 10px;
+		width: 0%;
+		background: $brand;
+	}
+}
+

@@ -1,0 +1,41 @@
+$question-width: 25em !default;
+.flex-container {
+	@include flexbox();
+	@include flex-direction(column);
+	width: 100%;
+	height: 100%;
+	height: 100vh;
+}
+
+.main {
+	@include flex(1, 1, 0);
+	@include flexbox();
+	@include align-items(center);
+	@include justify-content(center);
+	position: relative;
+	background: $dark;
+	color: $light;
+}
+
+.question {
+	@include flex(0, 0, auto);
+}
+
+.powered {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+@media screen and (orientation: landscape) {
+	.flex-container {
+		@include flex-direction(row-reverse);
+	}
+	.main {
+		@include flex(1, 1, 0);
+	}
+	.question {
+		@include flex(0, 0, $question-width);
+	}
+}
+

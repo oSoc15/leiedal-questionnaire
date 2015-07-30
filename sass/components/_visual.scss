@@ -1,0 +1,75 @@
+// Examples
+.platform {
+	&::after {
+		content: 'platform';
+		position: absolute;
+		top: 20%;
+		left: 20%;
+		width: 60%;
+		height: 60%;
+		background: $brand;
+		color: $white;
+	}
+}
+// Examples
+.house {
+	&::after {
+		content: 'house';
+		position: absolute;
+		top: 30%;
+		left: 30%;
+		width: 40%;
+		height: 40%;
+		background: #EAE3DB;
+		color: $black;
+	}
+}
+// Examples
+.roof {
+	&::after {
+		content: 'roof';
+		position: absolute;
+		top: 25%;
+		left: 40%;
+		width: 30%;
+		height: 10%;
+		background: #D88A42
+	}
+}
+
+// width==height==
+.square {
+	position: relative;
+	width: 80%;
+	outline: 2px dashed #ff0;
+	padding-bottom: 80%;
+	max-height: 100%;
+}
+
+.visual {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	outline: 2px dashed #f00;
+	&>div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+	}
+	&::after {
+		content: 'svg size outline';
+		position: absolute;
+		top: 2px;
+		right: 5px;
+		color: #f00;
+	}
+}
+

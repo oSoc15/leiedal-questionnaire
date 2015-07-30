@@ -1,0 +1,14 @@
+{
+	"name": "Ten huize Leiedal",
+	"hasg": "Azerty123",
+	"address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Kortrijk",
+		"postalCode": "8500",
+		"streetAddress": "President Kennedypark 10"
+	},
+	"answers":{
+		"floors": 2
+	}
+}
+

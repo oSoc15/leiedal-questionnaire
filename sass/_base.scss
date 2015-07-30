@@ -1,0 +1,29 @@
+// Reset
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// Structure
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  font-family: "source sans pro", sans-serif;
+}
+
+// Type
+a {
+  color: $brand;
+  text-decoration: none;
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
