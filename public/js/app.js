@@ -1,86 +1,7 @@
 'use strict';
 
-//angular.module('app', ['ngResource', 'ngStorage'])
-angular.module('app', [])
+angular.module('app', ['ngResource', 'ngStorage'])
 
-/*.factory('Residence', ['$resource',
-	function($resource) {
-		return $resource('http://leiedal.app/api/residence/:reply', {
-			save:	{	method: 'POST'	}
-		});
-	}
-]);*/
-
-.controller('MainCtrl', ['$scope', '$http',
-	function($scope, $http) {
-
-		var residence;
-
-		// works get questions
-		$http.get("http://leiedal.app/api/questions/").success(function(data){
-			$scope.questions = data;
-			console.log(data);
-		});
-
-		$http.post("http://leiedal.app/api/residences/reply", { 'city': 'Kortrijk', 'postalCode': 8500, 'street': 'Grote Markt', 'number': 54 })
-			.success(function(data, status, headers, config){
-				$scope.residence(data);
-			});
-
-
-		/*var data = ('Kortrijk', 8500, 'Grote Markt', 54);
-
-		$http.post('http://leiedal.app/api/residences/reply', data).success(successCallback);
-
-		console.log(successCallback);*/
-
-		/*$http.post('http://leiedal.app/api/residences/reply',
-			{ city: 'Kortrijk', postalCode: 8500, street: 'Grote Markt', number: 54}).success(function(data){
-
-			}).error(function(data){
-
-			});*/
-
-		/*$http.get("http://leiedal.app/api/questions/")
-			.success(functionsuccessQuestions){
-				console.log(successQuestions);
-			}
-		$scope.questions = Questions.query();
-
-		console.log($scope.questions)*/
-
-
-
-		/*var residence = $resource("http://leiedal.app/api/residences/reply", null, { save: {method: "POST"}});
-
-		residence.save(
-			{
-				city: 'Kortrijk',
-				postalCode: 8500,
-				street: 'Grote Markt',
-				number: 54
-			}
-		);
-
-
-		var Questions = $resource("http://leiedal.app/api/questions/");
-		$scope.questions = Questions.query();
-
-		console.log($scope.questions);*/
-
-		//var residence = new ResidenceService();
-		//$scope.residence = new residences();
-
-		/*$scope.residence = {};
-
-		$scope.createResidence = function(){
-			residence.$save();
-    	}*/
-	}
-]);
-
-
-/*
 .controller('MainCtrl', ['$scope', '$resource', '$localStorage',
 	function($scope, $resource, $localStorage) {
 
@@ -162,4 +83,3 @@ angular.module('app', [])
 		};
 	}
 ]);
-*/
