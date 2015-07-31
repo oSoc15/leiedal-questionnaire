@@ -1,0 +1,80 @@
+[{
+  "key": "size",
+  "title": "Groote/Oppervlakte",
+  "description": "Hoe groot is uw huis?",
+  "type": "button",
+  "answers": [{
+    "value": 1,
+    "title": "Klein",
+    "image": "klein.jpg"
+  }, {
+    "value": 2,
+    "title": "Middelmatig",
+    "image": "middel.jpg"
+  }, {
+    "value": 3,
+    "title": "Groot",
+    "image": "groot.jpg"
+  }]
+}, {
+  "key": "floors",
+  "title": "Hoogte/Verdiepingen",
+  "description": "Hoeveel verdiepingen telt uw huis?",
+  "type": "button",
+  "answers": [{
+    "value": 1,
+    "title": "Enkel gelijkvloers"
+  }, {
+    "value": 2,
+    "title": "Gelijkvloers + 1 verdiep"
+  }, {
+    "value": 3,
+    "title": "Meer dan 2 verdiepen"
+  }]
+}, {
+  "key": "basement",
+  "title": "Kelder",
+  "description": "Heeft u een kelder?",
+  "type": "button",
+  "answers": [{
+    "value": 1,
+    "title": "Ja"
+  }, {
+    "value": -1,
+    "title": "Nee, geen kelder"
+  }]
+}, {
+  "key": "roof",
+  "title": "Dak",
+  "description": "Welk soort dak heeft u?",
+  "type": "button",
+  "answers": [{
+    "value": 1,
+    "title": "Plat dak",
+    "image": "plat-dak.jpg"
+  }, {
+    "value": 2,
+    "title": "Schuin dak",
+    "image": "schuin-dak.jpg"
+  }, {
+    "value": 3,
+    "title": "Gemengd dak",
+    "image": "gemengd-dak.jpg"
+  }]
+}, {
+  "key": "year",
+  "title": "Jaar",
+  "description": "Selecteer het bouwjaar van uw huis",
+  "type": "button",
+  "answers": [{
+    "value": 1899,
+    "title": "Ouder dan 1900"
+  }, {
+    "value": 1950,
+    "title": "Tussen 1900 en 2000",
+    "type": "year"
+  }, {
+    "value": 2001,
+    "title": "Nieuwer dan 2000"
+  }]
+}]

@@ -1,23 +1,58 @@
-Leiedal Questionnaire
-=====================================
+# leiedal-questionnaire
+Determine ecolabel of a user
 
-A web application for [Leiedal](http://www.leiedal.be/). Determines the users ecolabel and gives the appropriate advice.
-Part of an application that consists of [leiedal-questionnaire-api](https://github.com/oSoc15/leiedal-questionnaire-api) and [leiedal-questionnaire](https://github.com/oSoc15/leiedal-map).
+## Development
 
-[View contributors](https://github.com/oSoc15/leiedal-questionnaire/graphs/contributors)
+```
+npm install -g gulp bower
+npm install
+bower install
 
----
+# watch for changes and build
+gulp
+```
 
-### Getting up and running
+Gulp will start a server on http://localhost:12121 and watch for changes and livereload and build the sass.
 
-1. Clone this repo from `https://github.com/oSoc15/leiedal-questionnaire`
-2. Run `npm install` from the root directory
-3. Run `gulp dev` (may require installing Gulp globally `npm install gulp -g`)
-4. Your browser will automatically be opened and directed to the browser-sync proxy address
-5. To prepare assets for production, run the `gulp prod` task (Note: the production task does not fire up the express server, and won't provide you with browser-sync's live reloading. Simply use `gulp dev` during development. More information below)
+## App structure
 
-Now that `gulp dev` is running, the server is up as well and serving files from the `/build` directory. Any changes in the `/app` directory will be automatically processed by Gulp and the changes will be injected to any open browsers pointed at the proxy address.
+Angular app that loads an array of questions from a REST API.
 
----
+### Front end
 
-It uses the `https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate` as a boilerplate
+The user sees a question on the left and a visual representation of a residence on the right.
+
+Each question has...
+- a **type** that determines how it's rendered
+- an array of **answers**
+
+These answers and its values are saved in the **residence** object.
+The residence object contains location information and a unique hash that's created the first time a question for the residence is answered.
+This unique hash is appended to the url in the fragment and saved in localStorage.
+
+The user is asked one question at a time.
+It's possible to skip a question, in that case the ecolabel rating will be based off a default value and the subject will be hidden in the visual representation.
+
+For optimal performance, the landing page does not have angular, it is a seperately static/dynamic page. There is just 1 controller for questions and 1 controller for visualizing. No routing required.
+
+### Back end
+
+REST API compatible with angular-resource with following endpoints:
+
+/api/questions/:id  
+with at least these properties  
+- key: lowercase string
+- title: string
+- description: string
+- type: button | slider (can be overwritten in answer object)
+- answers: []
+  - value: int (or maybe string?)
+  - title: string
+  - (optional) image: path
+  - (optional) type: overwrites question type
+
+/api/residence/:hash
+- hash: string
+- name: string
+- locationstuff: ...
+- answers (or replies): []
