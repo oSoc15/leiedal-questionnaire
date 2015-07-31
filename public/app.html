@@ -35,7 +35,7 @@
 		        </div>
 
 		        <!-- questions -->
-		        <div id="question" class="question" ng-class"{'question--done':stor.r.anwsers[questions[q].key]}">
+		        <div class="question" ng-class"{'question--done':stor.r.anwsers[questions[q].key]}">
 		            <!-- menu -->
 		            <ul class="flex-container">
 		                <!-- navigate previous question -->
@@ -47,14 +47,14 @@
 		                <!-- shows information about the question -->
 		                <li id="info" ng-click="" ng-disabled="" class="flex-item icon-info"></li>
 		                <!-- navigate next question -->
-		                <li id="next"ng-click="q=q+1" ng-disabled="q==questions.length-1" class="flex-item icon-right"></li>
+		                <li id="next"ng-click="answer()" ng-disabled="q+1>=questions.length" class="flex-item icon-right"></li>
 		            </ul>
 		        </div>
 
-		        <div id="" class="answers">
-		            <div ng-repeat="(a, ans) in questions[q].answers" ng-click="anwer(questions[q], ans)" ng-class="{'answer-button':ans.image, 'answer--active':stor.r.answers[questions[q].key]==ans.value}">
+		        <div class="answers">
+		            <div ng-repeat="(a, ans) in questions[q].answers" ng-click="select(questions[q], ans)" ng-class="{'answer-button':ans.image, 'answer--active':stor.r.answers[questions[q].key]==ans.value, 'answer-selected': $index==selectedIndex}">
 		                <img ng-src="{{ans.image}}" ng-if="ans.image" alt="{{ans.image}}">
-		                <div ng-bind="ans.title"></div>
+		                <div ng-bind="ans.title" class="answer-button"></div>
 		                <input ng-if="ans.type=='year'" type="range" ng-model="ans.value" min="1900" max="2000">
 		                <span ng-if="ans.type=='year'">{{ans.value}}</span>
 		        </div>
