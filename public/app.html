@@ -31,7 +31,8 @@
 
 		        <!-- progressbar -->
 		        <div id="" class="progressbar">
-		            <div id="" class="progress" style="width:{{100*q/(questions.length-1)|number:2}}%" class="progress" ></div>
+		            <div id="" class="progress" style="width:{{100*q/(questions.length-1)|number:2}}%" class="progress" >
+		            </div>
 		        </div>
 
 		        <!-- questions -->
@@ -52,9 +53,9 @@
 		        </div>
 
 		        <div class="answers">
-		            <div ng-repeat="(a, ans) in questions[q].answers" ng-click="select(questions[q], ans)" ng-class="{'answer-button':ans.image, 'answer--active':stor.r.answers[questions[q].key]==ans.value, 'answer-selected': $index==selectedIndex}">
-		                <img ng-src="{{ans.image}}" ng-if="ans.image" alt="{{ans.image}}">
-		                <div ng-bind="ans.title" class="answer-button"></div>
+		            <div ng-repeat="(a, ans) in questions[q].answers" ng-click="select(questions[q], ans)" ng-class="{'answer-button':ans.image, 'answer-button':stor.r.answers[questions[q].key]==ans.value, 'answer-selected': $index==selectedIndex}">
+		                <svg ng-src="{{ans.image}}" alt="{{ans.image}}" class="answer-image-{{$index}}"></svg>
+		                <span ng-bind="ans.title" class=""></span>
 		                <input ng-if="ans.type=='year'" type="range" ng-model="ans.value" min="1900" max="2000">
 		                <span ng-if="ans.type=='year'">{{ans.value}}</span>
 		        </div>
