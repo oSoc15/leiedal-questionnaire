@@ -1,4 +1,5 @@
 @import 'vars';
+@import 'mixins';
 @import 'typography';
 @import 'settings';
 @import 'slider';
@@ -128,26 +129,21 @@ no-link:hover {
         padding: 0;
         margin: 0;
         list-style: none;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row;
-        justify-content: space-around;
+        @include justify-content(space-around);
+        @include flex-flow(row);
+        @extend %flexbox;
     }
     .flex-item {
         padding: 5px;
         width: 20px;
         height: 70px;
-        margin-top: 10px;
-        margin: 0;
+        margin: 10px 0 0 0;
         line-height: 25px;
         color: $grey;
         font-weight: bold;
         font-size: 1.5em;
         text-align: center;
-        flex-grow: 1;
+        @include flex-grow(1);
         p {
         line-height: 100%;
 
@@ -164,28 +160,19 @@ no-link:hover {
         margin-right: auto;
         display: -webkit-flex;
         display: block;
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        /* You can set flex-wrap and flex-direction individually */
-        -webkit-flex-direction: row;
-        flex-direction: row;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        /* Or do it all in one line with flex flow */
-        -webkit-flex-flow: row wrap;
-        flex-flow: row wrap;
-        /* tweak the where items line up on the row */
-        /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
-        -webkit-align-content: flex-end;
-        align-content: flex-end;
+        @include align-items(center);
+        @include justify-content(center);
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include flex-flow(row wrap);
+        @include align-content(flex-end);
         @media #{$tablet} {
             width: 150px;
 
         }
         // Button
         .answer-button {
+            cursor: pointer;
             position: relative;
             width: 200px;
             height: 50px;
@@ -197,6 +184,10 @@ no-link:hover {
             display: inline-block;
             float: left;
             font-size: 20px;
+
+            &:hover {
+                background: #ddd;
+            }
             
 
             @media #{$tablet} {
@@ -206,15 +197,14 @@ no-link:hover {
         }
         // Selected instance of the answer 
         .answer-selected{
-            border: 5px solid green;
+            background: #999;
         }
         @import 'answers';
 
 
     }
     .grow {
-        flex-grow: 4;
-        -ms-flex-grow: 4;
+        @include flex-grow(4);
     }
     .icon-left {
         background-image: url("../assets/images/arrow-left.svg");

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('app', ['ngResource', 'ngStorage'])
-.controller('MainCtrl', ['$scope', '$http', '$resource', '$localStorage',
+var app = angular.module('app', ['ngResource', 'ngStorage']);
+app.controller('MainCtrl', ['$scope', '$http', '$resource', '$localStorage',
  	function($scope, $http, $resource, $localStorage) {
 
 		// api url: http://leiedal.app/api/
@@ -27,6 +27,7 @@ angular.module('app', ['ngResource', 'ngStorage'])
 
 		$scope.selectedIndex = null;
 		$scope.selectedAnswer = null;
+        $scope.prefixes = ["s1"];
 
 		$scope.answer = function () {
 			$scope.reply = null;
@@ -41,7 +42,8 @@ angular.module('app', ['ngResource', 'ngStorage'])
 						}
 					],
 					"unknown": false
-				}
+				};
+                $scope.selectedIndex = -1;
 			} else {
 				$scope.reply = {
 					"residence": hashId,
@@ -53,7 +55,9 @@ angular.module('app', ['ngResource', 'ngStorage'])
 						}
 					],
 					"unknown": true
-				}
+				};
+                // default
+                $scope.select($scope.questions[$scope.q], $scope.questions[$scope.q].answers[0]);
 			}
 			$http.post(api + 'residences/reply', $scope.reply)
 				.success(function(data, status, headers, config) {
@@ -64,12 +68,80 @@ angular.module('app', ['ngResource', 'ngStorage'])
 				});
 			if ($scope.q < $scope.questions.length-1) {
 				$scope.q++;
-			};
-		}
+			}
+		};
+
+        $scope.toPreviousQuestion = function()
+        {
+            if($scope.q > 0)
+            {
+                $scope.q--;
+            }
+        };
+
+        $scope.getImageUrl = function(index) {
+            var str = "assets/";
+            if($scope.questions[$scope.q].title.length < 2) {
+                angular.forEach($scope.prefixes, function (val, key) {
+                    if(key <= $scope.q) {
+                        str += val;
+                    }
+                });
+                return str + $scope.questions[$scope.q].title + (index + 1) + ".svg";
+            }
+            else {
+                return str + "s1-" + $scope.questions[$scope.q].title + ".svg";
+            }
+        };
 
 		$scope.select = function(question, answer){
-			$scope.selectedIndex = answer['id'] - question['answers'][0]['id'];
+			$scope.selectedIndex = (answer['id'] - question['answers'][0]['id']);
 			$scope.selectedAnswer = answer;
+            console.log($scope.selectedAnswer);
+            console.log($scope.questions[$scope.q]);
+            var newPrefix = "";
+            if($scope.questions[$scope.q].title.length > 2) {
+                newPrefix += "-";
+            }
+            newPrefix += $scope.questions[$scope.q].title + ($scope.selectedIndex + 1);
+            if($scope.prefixes.length > $scope.q) {
+                $scope.prefixes[$scope.q + 1] = newPrefix;
+            }
+            else {
+                $scope.prefixes.push(newPrefix);
+            }
 		}
    	}
 ]);
+
+app.directive('building', function()
+{
+    return {
+        restrict: "A",
+        scope: {
+            'prefixes': '='
+        },
+        link: function(scope, element, attr)
+        {
+            scope.$watch(function() {
+                return scope.prefixes;
+            },
+                function(newVal, oldVal) {
+                    if(newVal) {
+                        var str = "";
+                        element.html("");
+                        angular.forEach(newVal, function (val, key) {
+                            if(val.length < 3 || val == 'solar') {
+                                str += val;
+                                element.append('<img src="assets/' + str + '.svg" />');
+                            }
+                            else {
+                                element.append('<img src="assets/s1' + val + '.svg" />');
+                            }
+                        });
+                    }
+                }, true);
+
+        }
+    };
+});

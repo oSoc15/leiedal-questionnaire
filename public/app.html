@@ -15,9 +15,12 @@
 
 	<body ng-controller="MainCtrl">
 		<div id="questionairepage">
-		    <div id="" class="illustrationbox">
-		        <img src="assets/images/main_home.svg" />
-		        <div id="" class="label-leiedal"></div>
+		    <div class="illustrationbox">
+                <img src="assets/platform.svg" />
+                <div prefixes="prefixes" building>
+		            <img src="assets/images/main_home.svg" />
+                </div>
+		        <div class="label-leiedal"></div>
 		    </div>
 
 		    <!-- animation/illustration -->
@@ -30,17 +33,17 @@
 		        </div>-->
 
 		        <!-- progressbar -->
-		        <div id="" class="progressbar">
-		            <div id="" class="progress" style="width:{{100*q/(questions.length-1)|number:2}}%" class="progress" >
+		        <div class="progressbar">
+		            <div class="progress" style="width:{{100*q/(questions.length-1)|number:2}}%" class="progress" >
 		            </div>
 		        </div>
 
 		        <!-- questions -->
-		        <div class="question" ng-class"{'question--done':stor.r.anwsers[questions[q].key]}">
+		        <div class="question" ng-class="{'question--done':answers[questions[q].key]}">
 		            <!-- menu -->
 		            <ul class="flex-container">
 		                <!-- navigate previous question -->
-		                <li id="previous" ng-click="q=q-1" ng-disabled="q==0" ng-style="{opacity : ((q==0) && '0.3') || '1'}" class="flex-item icon-left"></li>
+		                <li id="previous" ng-click="toPreviousQuestion()" ng-disabled="q==0" ng-style="{opacity : ((q==0) && '0.3') || '1'}" class="flex-item icon-left"></li>
 		                <!-- all questions -->
 		                <li id="overview" ng-click="" ng-disabled="q==0" class="flex-item icon-overview"></li>
 		                <!-- shows questions -->
@@ -53,8 +56,8 @@
 		        </div>
 
 		        <div class="answers">
-		            <div ng-repeat="(a, ans) in questions[q].answers" ng-click="select(questions[q], ans)" ng-class="{'answer-button':ans.image, 'answer-button':stor.r.answers[questions[q].key]==ans.value, 'answer-selected': $index==selectedIndex}">
-		                <img ng-src="{{ans.image}}" alt="{{ans.image}}" class="answer-image answer-image-{{$index}}" >
+		            <div ng-repeat="(a, ans) in questions[q].answers" ng-click="select(questions[q], ans)" ng-class="{'answer-button':answers[questions[q].key]==ans.value, 'answer-selected': $index==selectedIndex}">
+		                <img ng-src="{{getImageUrl($index)}}" alt="{{ans.image}}" class="answer-image answer-image-{{$index}}" >
 		                <span ng-bind="ans.title" class=""></span>
 		                <input ng-if="ans.type=='year'" type="range" ng-model="ans.value" min="1900" max="2000">
 		                <span ng-if="ans.type=='year'">{{ans.value}}</span>
@@ -68,7 +71,7 @@
 		        <div id="items" class="menu-items"></div>
 
 		        <div id="shadow" class="info-shadow"></div>
-		        <div id="info" class="info"></div>
+		        <div class="info"></div>
 
 		        <!-- Categorie -->
 		        <!--<div id="qcategoriesubpage">
