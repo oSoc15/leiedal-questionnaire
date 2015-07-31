@@ -1,21 +1,17 @@
-//dak
-.dak {
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-.schuin {
-    background-image: url("../assets/images/dak-schuin.svg");
-}
-.plat {
-    background-image: url("../assets/images/dak-plat.svg");
+//svg
+
+.answer-image {
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
 }
 
-.mixed {
-    background-image: url("../assets/images/dak-mixed.svg");
-}
-
-//bebouwing
-.bebouwing {
-    background-repeat: no-repeat;
-    background-position: center center;
+span.ng-binding {
+  position: absolute;
+    bottom:5px;
+    left:0;
+    width: 100%;
 }
